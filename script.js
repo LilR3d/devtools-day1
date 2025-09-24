@@ -34,11 +34,11 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log(updateMessage());
 
   // Error 7 (event handler usage corrected)
-  if (button) {
-    button.addEventListener("click", testFunction);
-  }
   function testFunction() {
     console.log("Test function executed");
+  }
+  if (button) {
+    button.addEventListener("click", testFunction);
   }
 
   // Error 8 (math logic corrected)
@@ -48,8 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Error 9 (null check)
   let nullVar = null;
-  if (nullVar == null) {
-    console.error("nullVar is null or undefined");
+  if (nullVar === null) {
+    console.error("nullVar is null");
   }
 
   // Error 10 (case sensitivity)
@@ -73,8 +73,8 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log(greeting);
 
   // Error 16 (for loop corrected)
-  for (let i = 0; i < 5; i++) {
-    console.log(i);
+  for (let index = 0; index < 5; index++) {
+    console.log(index);
   }
 
   // Error 17 (strict equality fix)
