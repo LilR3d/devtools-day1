@@ -1,95 +1,101 @@
-// Error 1:
-let message = 'Welcome to the debugging exercise!';
-console.log(mesage); 
+console.log("✅ script.js is loaded in the browser");
 
-// Error 2: 
-let button = document.querySelector('.actionButton'); 
-button.addEventListener('click', eventHandler); 
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("✅ DOM is ready");
 
-// Error 3: 
-function eventHandler() {
-  console.log('Button clicked');
-  displayOutput();
-}
+  // --- DOM elements ---
+  let button = document.querySelector(".actionButton");
+  let output = document.querySelector("#output");
 
-// Error 4: 
-function displayOutput() {
-  let output = document.querySelector('#output'); 
-  output.innerText = 'You clicked the button!';
-}
+  if (button) {
+    button.addEventListener("click", () => {
+      console.log("Button clicked!");
+      if (output) {
+        output.innerText = "You clicked the button!";
+      }
+    });
+  } else {
+    console.error("❌ .actionButton not found");
+  }
 
-// Error 6: Misusing variable scope
-function updateMessage() {
-  let localMessage = 'Updated message';
-}
-updateMessage();
-console.log(localMessage); 
+  // -----------------------------
+  // Debugging Exercise Examples
+  // -----------------------------
 
-// Error 7:
-document.getElementById('testButton').addEventListener('click', testFunction());
+  // Error 1 (fixed)
+  let message = "Welcome to the debugging exercise!";
+  console.log(message);
 
-function testFunction() {
-  console.log('Test function executed');
-}
+  // Error 6 (variable scope)
+  function updateMessage() {
+    let localMessage = "Updated message";
+    return localMessage;
+  }
+  console.log(updateMessage());
 
-// Error 8:
-let number1 = 10;
-let number2 = 5;
-console.log('Sum is: ' + (number1 - number2));
+  // Error 7 (event handler usage corrected)
+  if (button) {
+    button.addEventListener("click", testFunction);
+  }
+  function testFunction() {
+    console.log("Test function executed");
+  }
 
-// Error 9: 
-let nullVar = null;
-console.log(nullVar.length);
+  // Error 8 (math logic corrected)
+  let number1 = 10;
+  let number2 = 5;
+  console.log("Sum is: " + (number1 + number2));
 
-// Error 10:
-let caseSensitiveVar = 'Case matters';
-console.log(CaseSensitiveVar);
+  // Error 9 (null check)
+  let nullVar = null;
+  if (nullVar == null) {
+    console.error("nullVar is null or undefined");
+  }
 
-// Error 11:
-let importantData =
-  "This string must be logged to the console. It's important!";
-console.log('importantData');
+  // Error 10 (case sensitivity)
+  let caseSensitiveVar = "Case matters";
+  console.log(caseSensitiveVar);
 
-// Error 12: 
-tryToCallFunction();
+  // Error 11 (log variable, not string)
+  let importantData = "This string must be logged to the console. It's important!";
+  console.log(importantData);
 
-// Error 13:
-let user = { namee: 'Alice' };
-console.log(user.name)
+  // Error 13 (works fine)
+  let user = { name: "Alice" };
+  console.log(user.name);
 
-// Error 14: 
-let someNumber = 123;
-console.log(someNumber.toUpperCase()); 
+  // Error 14 (wrong type method)
+  let someNumber = 123;
+  console.log(String(someNumber).toUpperCase());
 
-// Error 15: 
-let greeting = Hello, world!;
+  // Error 15 (string quotes fixed)
+  let greeting = "Hello, world!";
+  console.log(greeting);
 
-// Error 16: 
-for (let i = 0; i < 5; i++); {
+  // Error 16 (for loop corrected)
+  for (let i = 0; i < 5; i++) {
     console.log(i);
-}
+  }
 
-// Error 17:
-let five = '5';
-if (five === 5) {
-    console.log('Five is equal to 5'); // This one should be logged
-} else {
-    console.log('Five is not equal to 5'); 
+  // Error 17 (strict equality fix)
+  let five = "5";
+  if (Number(five) === 5) {
+    console.log("Five is equal to 5");
+  } else {
+    console.log("Five is not equal to 5");
+  }
 
-// Error 18:
-Array.prototype.push = function() {
-    console.log('Array push method is overwritten');
-};
-let numbers = [];
-numbers.push(1);
-console.log(numbers);
+  // Error 18 (don’t override Array.push)
+  let numbers = [];
+  numbers.push(1);
+  console.log(numbers);
 
-// Error 19:
-console.log(x);
-x = 5;
+  // Error 19 (declare before use)
+  let x = 5;
+  console.log(x);
 
-// Error 20:
-let myString = 'Hello';
-myString.property = 'World';
-console.log(myString.property); 
-
+  // Error 20 (primitive property fix)
+  let myString = "Hello";
+  let wrapper = { property: "World" };
+  console.log(wrapper.property);
+});
